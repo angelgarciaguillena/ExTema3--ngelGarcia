@@ -1,16 +1,41 @@
 package fecha;
 
+/**
+ * Esta clase se encarga de comprobar si la fecha introducida es correcta
+ * 
+ * @author Antonio
+ */
 public class Fecha {
-	private int d; //día
-	private int m; //mes
-	private int a; //año
-
 	
+	/**
+	 * Atributo privado que almacena el dia
+	 */
+	private int d; //dï¿½a
+	
+	/**
+	 * Atributo privado que almacena el mes
+	 */
+	private int m; //mes
+	
+	/**
+	 * Atributo privado que almacena el aÃ±o
+	 */
+	private int a; //aï¿½o
+
+	/**
+	 * Este metodo no se encarga de realizar ninguna funcion
+	 */
 	public Fecha() {
 
 	}
 
-	
+	/**
+	 * Constructor que inicializa los atributos d, m y a con los parametros que recibe
+	 * 
+	 * @param dia Dia introducido
+	 * @param mes Mes introducido
+	 * @param anio Anio introducido
+	 */
 	public Fecha(int dia, int mes, int anio) {
 		this.d = dia;
 		this.m = mes;
@@ -18,7 +43,11 @@ public class Fecha {
 	}
 
 	
-	
+	/**
+	 * Calcula y devuelve si el dia, el mes y el aÃ±o introducidos son correctos
+	 * 
+	 * @return Devuelve el dia, el mes, y el aÃ±o correctos
+	 */
 	public boolean fechaCorrecta() {
 		boolean diaCorrecto, mesCorrecto, anioCorrecto;
 		anioCorrecto = a > 0;
@@ -43,13 +72,21 @@ public class Fecha {
 		return diaCorrecto && mesCorrecto && anioCorrecto;
 	}
 
-	// Método esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+	// Mï¿½todo esBisiesto. Solo lo usa fechaCorrecta, por eso es privado
+	/**
+	 * Este metodo se encarga de calcular y devolver si nos encontramos en un aÃ±o bisiesto
+	 * 
+	 * @return Devuelve true si el aÃ±o es bisiesto o false si no lo es
+	 */
 	private boolean esBisiesto() {
 		boolean esBisiesto = (a % 4 == 0 && a % 100 != 0 || a % 400 == 0);
 		return esBisiesto;
 	}
 
-	// Método diaSiguiente
+	// Mï¿½todo diaSiguiente
+	/**
+	 * Este metodo se encarga de calcular el dia siguiente al que nos encontramos
+	 */
 	public void diaSiguiente() {
 		d++;
 		if (!fechaCorrecta()) {
@@ -62,7 +99,13 @@ public class Fecha {
 		}
 	}
 
-	// Método toString
+	// Mï¿½todo toString
+	/**
+	 * Este metodo se encarga de devolver como se debe mostrar la fecha por pantalla segun 
+	 * la fecha en la que nos encontremos
+	 * 
+	 * @return Devuelve una cadena con la fecha
+	 */
 	public String toString() {
 		if (d < 10 && m < 10) {
 			return "0" + d + "-0" + m + "-" + a;
